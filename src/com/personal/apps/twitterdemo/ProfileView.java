@@ -1,6 +1,7 @@
 package com.personal.apps.twitterdemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,9 +27,12 @@ public class ProfileView extends Activity {
     TextView profileDesc;
     TextView followerDesc;
 
+    ProfileAdapter adapter = new ProfileAdapter(new ArrayList<TwitterModel>(), this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         profileInfo = (ListView) findViewById(R.id.profileList);
@@ -37,12 +41,17 @@ public class ProfileView extends Activity {
         profileDesc = (TextView) findViewById(R.id.ProfileDescription);
         followerDesc = (TextView) findViewById(R.id.follwerCount);
 
-        final ProfileAdapter adapter = new ProfileAdapter(new ArrayList<TwitterModel>(), this);
+
 
         profileInfo.setAdapter(adapter);
 
+        Intent intent = getIntent();
+        String user_id=intent.getStringExtra("user_id");
 
-        TwitterClientApp.getRestClient().getUserTimeLine(new JsonHttpResponseHandler() {
+        System.out.println("fetching profile for id="+user_id);
+
+
+        TwitterClientApp.getRestClient().getUserTimeLine(user_id, new JsonHttpResponseHandler() {
             @Override
             public void onFailure(Throwable throwable, JSONArray jsonArray) {
                 super.onFailure(throwable, jsonArray);
@@ -64,13 +73,7 @@ public class ProfileView extends Activity {
 
                 TwitterModel tweet = adapter.setdata(jsonArray.toString());
 
-                System.out.println("result =" + tweet.toString());
-
-                Picasso.with(ProfileView.this).load(tweet.user.profile_image_url).into(profileImage);
-
-                profileName.setText(tweet.user.name);
-                profileDesc.setText(tweet.user.description);
-                followerDesc.setText(tweet.user.friends_count + " Following \t "+ tweet.user.followers_count + " Followers");
+                displayProfile(tweet);
 
             }
         });
@@ -78,7 +81,20 @@ public class ProfileView extends Activity {
 
 
 
+
+
+
     }
+
+    private void displayProfile(TwitterModel tweet) {
+        System.out.println("result in tweet = "+ tweet);
+        Picasso.with(ProfileView.this).load(tweet.user.profile_image_url).into(profileImage);
+        profileName.setText(tweet.user.name);
+        profileDesc.setText(tweet.user.description);
+        followerDesc.setText(tweet.user.friends_count + " Following \t "+ tweet.user.followers_count + " Followers");
+    }
+
+
 
 
 }

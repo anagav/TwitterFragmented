@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import com.codepath.apps.restclienttemplate.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -31,7 +32,6 @@ public class MyTimeLineActivity extends FragmentActivity {
     final String HOME_STRING = "Home";
 
     final String MENTION_STRING = "Mentions";
-
 
 
     public enum CONTEXT {
@@ -194,5 +194,13 @@ public class MyTimeLineActivity extends FragmentActivity {
         });
 
     }
+
+
+    public void displayProfile(View view) {
+        Intent i = new Intent(this,ProfileView.class);
+        i.putExtra("user_id",view.findViewById(R.id.displayImage).getTag().toString());
+        startActivity(i);
+    }
+
 
 }

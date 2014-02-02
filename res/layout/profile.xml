@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="5dp"
+
             android:layout_toRightOf="@+id/profileImage"
             android:linksClickable="true"
             android:textStyle="bold"
@@ -41,7 +42,8 @@
             android:id="@+id/follwerCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/profileImage"
+            android:layout_below="@id/ProfileDescription"
+
             android:layout_marginLeft="15dp"
             android:gravity="bottom"
             android:textStyle="italic"

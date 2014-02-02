@@ -44,8 +44,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.personal.apps.twitterdemo.MyTimeLineActivity" android:label="TimeLine" android:icon="@drawable/download"/>
-        <activity android:name="com.personal.apps.twitterdemo.Compose"/>
-        <activity android:name="com.personal.apps.twitterdemo.ProfileView"/>
+        <activity android:name="com.personal.apps.twitterdemo.Compose" android:label="Compose Tweet"/>
+        <activity android:name="com.personal.apps.twitterdemo.ProfileView" android:label="Profile"/>
     </application>
 
 </manifest>
