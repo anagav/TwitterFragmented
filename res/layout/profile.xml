@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileImage"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_launcher"
+            android:contentDescription="ProfileImage"/>
+    <TextView
+            android:id="@+id/ProfileUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:linksClickable="true"
+            android:textStyle="bold"
+            android:text="@string/usernamePlaceholder"
+            android:textSize="12sp"/>
+
+    <TextView
+            android:id="@+id/ProfileDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="5dp"
+            android:layout_below="@id/ProfileUserName"
+            android:layout_toRightOf="@+id/profileImage"
+            android:linksClickable="true"
+
+            android:text="desciptionPlaceholder"
+            android:textSize="12sp"/>
+
+
+    <TextView
+            android:id="@+id/follwerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImage"
+            android:layout_marginLeft="15dp"
+            android:gravity="bottom"
+            android:textStyle="italic"
+            android:text="@string/followerPlaceholder"
+            android:textSize="12sp"
+            android:singleLine="true" android:paddingBottom="10dp"/>
+
+
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileList"
+            android:layout_below="@id/follwerCount"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+           />
+
+</RelativeLayout>

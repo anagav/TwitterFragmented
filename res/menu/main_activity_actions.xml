@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_search"
+          android:icon="@drawable/compose"
+          android:title="@string/compose"
+          android:onClick="loadCompose"
+          android:showAsAction="ifRoom|withText"  />
+
+    <item android:id="@+id/profileLoad"
+          android:icon="@drawable/ic_launcher"
+          android:title="@string/profile"
+          android:onClick="loadProfile"
+          android:showAsAction="ifRoom|withText"  />
+
+
+</menu>
