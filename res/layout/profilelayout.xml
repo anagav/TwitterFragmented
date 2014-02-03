@@ -66,6 +66,18 @@
             android:text="@string/usernamePlaceholder"
             android:textSize="12sp"/>
 
+
+    <TextView
+            android:id="@+id/screenName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/userName"
+            android:linksClickable="true"
+            android:layout_marginStart="20dp"
+            android:textStyle="italic"
+            android:textSize="12sp"/>
+
     <TextView
             android:id="@+id/tweet"
             android:layout_width="wrap_content"

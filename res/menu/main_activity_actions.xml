@@ -8,7 +8,7 @@
           android:showAsAction="ifRoom|withText"  />
 
     <item android:id="@+id/profileLoad"
-          android:icon="@drawable/ic_launcher"
+          android:icon="@drawable/usericon"
           android:title="@string/profile"
           android:onClick="loadProfile"
           android:showAsAction="ifRoom|withText"  />

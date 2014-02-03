@@ -76,16 +76,12 @@ public class ProfileAdapter extends BaseAdapter {
         assert v != null;
         ImageView image = (ImageView) v.findViewById(R.id.displayImage);
         TextView fromView = (TextView) v.findViewById(R.id.userName);
+        TextView screenName = (TextView) v.findViewById(R.id.screenName);
         TwitterModel tweet = _data.get(position);
-        //TextView subView = (TextView)v.findViewById(R.id.subject);
         TextView descView = (TextView) v.findViewById(R.id.tweet);
         Linkify.addLinks(descView, Linkify.ALL);
         descView.setLinksClickable(true);
         descView.setLinkTextColor(Color.BLUE);
-
-
-        //TextView timeView = (TextView)v.findViewById(R.id.time);
-
 
         URL url = null;
         try {
@@ -98,13 +94,11 @@ public class ProfileAdapter extends BaseAdapter {
 
         Picasso.with(_c).load(tweet.user.profile_image_url).into(image);
 
-        //image.setImageResource(R.drawable.ic_launcher);
-
         fromView.setText(tweet.user.name);
 
+        screenName.setText("@"+tweet.user.screen_name);
 
         descView.setText(tweet.text);
-
 
         return v;
     }

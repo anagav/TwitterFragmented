@@ -27,6 +27,7 @@ public class ProfileView extends Activity {
     TextView profileDesc;
     TextView followerDesc;
 
+
     ProfileAdapter adapter = new ProfileAdapter(new ArrayList<TwitterModel>(), this);
 
     @Override
@@ -40,6 +41,7 @@ public class ProfileView extends Activity {
         profileName = (TextView) findViewById(R.id.ProfileUserName);
         profileDesc = (TextView) findViewById(R.id.ProfileDescription);
         followerDesc = (TextView) findViewById(R.id.follwerCount);
+
 
 
 
@@ -70,20 +72,11 @@ public class ProfileView extends Activity {
             @Override
             public void onSuccess(JSONArray jsonArray) {
                 super.onSuccess(jsonArray);
-
                 TwitterModel tweet = adapter.setdata(jsonArray.toString());
-
                 displayProfile(tweet);
 
             }
         });
-
-
-
-
-
-
-
     }
 
     private void displayProfile(TwitterModel tweet) {
@@ -91,6 +84,7 @@ public class ProfileView extends Activity {
         Picasso.with(ProfileView.this).load(tweet.user.profile_image_url).into(profileImage);
         profileName.setText(tweet.user.name);
         profileDesc.setText(tweet.user.description);
+
         followerDesc.setText(tweet.user.friends_count + " Following \t "+ tweet.user.followers_count + " Followers");
     }
 
